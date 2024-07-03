@@ -1,82 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.List"%>
-<%@ page import="ismspdto.managedto"%>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./icon/fa2.ico" type="image/gif" sizes="16x16">
-    <title>Dashboard</title>
-    <meta name="og:description"
-        content="Unveiling the DataMents Free Bootstrap Admin Dashboard Template, your ultimate solution to a seamless web management experience! This is more than just a template; it's your partner in crafting a digital masterpiece.">
-    <meta name="robots" content="index, follow">
-    <meta name="og:title" property="og:title" content="DataMents - Free Bootstrap Admin Dashboard Template">
-    <meta property="og:image"
-        content="https://www.designtocodes.com/wp-content/uploads/2023/08/DataMents-Free-Bootstrap-Admin-Dashboard-Template.jpg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./icon/fa2.ico" type="image/gif" sizes="16x16" />
+    <title>Data Table</title>
+    <meta
+      name="og:description"
+      content="unveiling the dataments free bootstrap admin dashboard template, your ultimate solution to a seamless web management experience! this is more than just a template; it's your partner in crafting a digital masterpiece."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="og:title"
+      property="og:title"
+      content="dataments - free bootstrap admin dashboard template"
+    />
+    <meta property="og:image" content="#" />
     <!-- bootstrap css link -->
-    <link rel="stylesheet" href="./lib/bootstrap_5/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap_5/bootstrap.min.css" />
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="./lib/fontawesome/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- data table css link -->
+    <link rel="stylesheet" href="./lib/DataTables/datatables.min.css" />
     <!-- main css -->
-    <link rel="stylesheet" href="./assets/css/global.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/global.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
     <!-- responsive css -->
-    <link rel="stylesheet" href="./assets/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
-		
-</head>
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 <style>
-    .d2c_main .body .container form {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: nowrap; /* 요소가 한 줄에 위치하도록 함 */
-    }
-
-    .d2c_main .body .container form .text-nowrap,
-    .d2c_main .body .container form .btn {
-        white-space: nowrap;
-    }
-
-    .d2c_main .body .container form .input-daterange .form-control {
-        min-width: 150px;
-    }
-
-    .d2c_main .body .container form span,
-    .d2c_main .body .container form .input-daterange,
-    .d2c_main .body .container form button {
-        margin: 0 5px; /* 요소 간 간격 조정 */
-    }
-</style>
-<style>
-    .search-btn {
+    .download-btn {
         background-color: #23F563;
         border-color: #23F563;
     }
 </style>
+<style>
+  .center-align {
+    text-align: center;
+    vertical-align: middle;
+  }
+</style>
+  </head>
 
-<body>
-
+  <body>
     <div class="d2c_wrapper">
         <div class="d2c_sidebar d2c_home rounded-4 px-4 py-4 py-md-4 m-4 me-0" id="sidebar">
             <div class="d-flex flex-column h-100">
-                <a href="./index.jsp" class="mb-0 brand-icon">
+                <a href="./index.html" class="mb-0 brand-icon">
                     <img class="navbar-brand" src="./assets/images/logo/logo.png" alt="logo">
                 </a>
                 <hr class="divider">
                 <ul class="navbar-nav flex-grow-1" id="d2c_Sidebar">
+                    <!-- Menu Item -->
                     <li class="nav-item">
-                        <a class="nav-link active" href="./index.jsp">
+                        <a class="nav-link active" href="index">
                             <i class="fas fa-home me-2" style="color: #ffffff"></i>
                             <span style="color: #ffffff;">Dashboard</span>
                         </a>
@@ -99,7 +86,6 @@
                             <span>인증 심사 서류 양식</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" id="ismsp-link" href="#">
                             <i class="fa-solid fa-list-check" style="color: #ffffff;"></i> <span>ISMS-P 심사</span>
@@ -118,31 +104,37 @@
                                         </a>
                                         <ul class="navbar-nav flex-column ms-3 d-none" id="sub2-1-submenu">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="ismsp?category=1.1.2 최고책임자의 지정">
+                                                <a class="nav-link" href="#">
+                                                    <i class="fa-solid fa-caret-right" style="color: #ffffff;"></i>
+                                                    <span>1.1.1 경영진의 참여</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
                                                     <i class="fa-solid fa-caret-right" style="color: #ffffff;"></i>
                                                     <span>1.1.2 최고책임자의 지정</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="ismsp?category=1.1.3 조직 구성">
+                                                <a class="nav-link" href="#">
                                                     <i class="fa-solid fa-caret-right" style="color: #ffffff;"></i>
                                                     <span>1.1.3 조직 구성</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="ismsp?category=1.1.4 범위 설정">
+                                                <a class="nav-link" href="#">
                                                     <i class="fa-solid fa-caret-right" style="color: #ffffff;"></i>
                                                     <span>1.1.4 범위 설정</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="ismsp?category=1.1.5 정책 수립">
+                                                <a class="nav-link" href="#">
                                                     <i class="fa-solid fa-caret-right" style="color: #ffffff;"></i>
                                                     <span>1.1.5 정책 수립</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="ismsp?category=1.1.6 자원 할당">
+                                                <a class="nav-link" href="#">
                                                     <i class="fa-solid fa-caret-right" style="color: #ffffff;"></i>
                                                     <span>1.1.6 자원 할당</span>
                                                 </a>
@@ -171,6 +163,12 @@
                                                 <a class="nav-link" href="#">
                                                     <i class="fa-solid fa-caret-right" style="color: #ffffff;"></i>
                                                     <span>1.2.3 위험 평가</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <i class="fa-solid fa-caret-right" style="color: #ffffff;"></i>
+                                                    <span>1.2.4 보호대책 선정</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -238,7 +236,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="sub4-1-link" href="#">
                                             <i class="fa-solid fa-circle-dot" style="color: #ffffff;"></i>
-                                            <span>2.1. ㅋㅋㅋㅋㅋㅋ</span>
+                                            <span>2.1. 보안 요구사항</span>
                                         </a>
                                         <ul class="navbar-nav flex-column ms-3 d-none" id="sub4-1-submenu">
                                             <li class="nav-item">
@@ -270,7 +268,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="sub4-2-link" href="#">
                                             <i class="fa-solid fa-circle-dot" style="color: #ffffff;"></i>
-                                            <span>2.2.ㅋㅋㅋㅋㅋ</span>
+                                            <span>2.2. 접근 통제</span>
                                         </a>
                                         <ul class="navbar-nav flex-column ms-3 d-none" id="sub4-2-submenu">
                                             <li class="nav-item">
@@ -302,7 +300,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="sub4-3-link" href="#">
                                             <i class="fa-solid fa-circle-dot" style="color: #ffffff;"></i>
-                                            <span>2.3. ㅋㅋㅋㅋㅋ</span>
+                                            <span>2.3. 데이터 암호화</span>
                                         </a>
                                         <ul class="navbar-nav flex-column ms-3 d-none" id="sub4-3-submenu">
                                             <li class="nav-item">
@@ -334,7 +332,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" id="sub4-4-link" href="#">
                                             <i class="fa-solid fa-circle-dot" style="color: #ffffff;"></i>
-                                            <span>2.4.ㅋㅋㅋㅋㅋㅋ</span>
+                                            <span>2.4. 네트워크 보안</span>
                                         </a>
                                         <ul class="navbar-nav flex-column ms-3 d-none" id="sub4-4-submenu">
                                             <li class="nav-item">
@@ -540,137 +538,205 @@
                                     </li>
                                 </ul>
                             </li>
-
                         </ul>
-                    </li>
-                  </ul>
             </div>
         </div>
 
-        <!-- Page Content  -->
-        <div class="d2c_main px-lg-4 px-md-4 px-3">
-            <!-- Main Content -->
-            <div class="body">
-		<br>
-                <!-- Table 1 -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="mb-0 text-capitalize">증적 목록</h4>
-                            </div>
-                            <div class="container px-1 px-sm-5 mx-auto">
-                            <br><br>
-							    <form method="post" action="docmanage" autocomplete="off" class="d-flex align-items-center justify-content-center flex-nowrap">
-							        <span class="text-nowrap">기간 조회</span>
-							        <div class="input-group input-daterange mx-2">
-							            <input type="text" class="form-control" name="starttime" placeholder="Start Date" readonly>
-							            <input type="text" class="form-control" name="endtime" placeholder="End Date" readonly>
-							        </div>
-							        <button class="btn search-btn" tabindex="0" type="submit"><span>조회하기</span></button>
-							    </form>
-							</div>
-							
-                            <br><br>
-                            <div class="d2c_dataTable table-responsive">
-                            <%
-                            List<managedto> managelist = (List<managedto>)request.getAttribute("managelist");
-                            %>
-                                <table id="table_id_1" class="w-100">
-                                    <thead>
-                                        <tr>
-                                            <th style="min-width: 120px;">번호</th>
-                                            <th style="min-width: 120px;">파일명</th>
-                                            <th style="min-width: 120px;">인증 항목</th>
-                                            <th style="min-width: 120px;">담당자명</th>
-                                            <th style="min-width: 120px;">업로드 날짜</th>
-                                            <th style="min-width: 120px;">파일 다운로드</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <%
-                                    if(managelist!=null){
-                                    	int idx = 1;
-                                    	for(int i=0;i<managelist.size();i++){
-                                    		String[] files = new String[1];
-                                    		if(managelist.get(i).getFilename().contains(",")){
-                                    			files = managelist.get(i).getFilename().split(",");
-                                    		}
-                                    		else {
-                                    			files[0] = managelist.get(i).getFilename();
-                                    		}
-                                    %>
-                                        <tr>
-                                            <%
-                                            if(files.length==1){
-                                            %>
-                                            	<td><%=idx %></td>
-                                            	<td><%=files[0] %></td>
-                                            	<td><%=managelist.get(i).getThirdclass() %></td>
-                                            	<td><%=managelist.get(i).getManager() %></td>
-                                            	<td><%=managelist.get(i).getUploadtime() %></td>
-					    						<td><button class="btn btn-warning" tabindex="0" type="button" onclick="downloadFile('<%=files[0] %>')"><span>다운로드</span></button></td>
-                                            <%
-                                            	idx++;
-                                            } else {
-                                            	for(int j=0;j<files.length;j++){
-                                            %>
-                                            	<td><%=idx %></td>
-                                            	<td><%=files[j] %></td>
-                                            	<td><%=managelist.get(i).getThirdclass() %></td>
-                                            	<td><%=managelist.get(i).getManager() %></td>
-                                            	<td><%=managelist.get(i).getUploadtime() %></td>
-					    						<td><button class="btn btn-warning" tabindex="0" type="button" onclick="downloadFile('<%=files[j] %>')"><span>다운로드</span></button></td>
-                                            <%
-                                            	idx++;
-                                            	}
-                                            }
-                                            %>
-                                        </tr>
-                                    <%
-                                    	}
-                                    }
-                                    %>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+      <div class="d2c_main px-lg-4 px-md-4 px-3">
+        <div class="body">
+          <br />
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="mb-0 text-capitalize">인증 심사 서류 양식</h4>
                 </div>
-                <!-- Table 1 -->
-        </div><!-- Page Content  -->
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <!-- Datepicker JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <!-- Datatable JS -->
-    <script src="./lib/DataTables/datatables.min.js"></script>
-    <script src="./lib/DataTables/dataTables.buttons.min.js"></script>
-    <script src="./lib/DataTables/jszip.min.js"></script>
-    <script src="./lib/DataTables/pdfmake.min.js"></script>
-    <script src="./lib/DataTables/vfs_fonts.js"></script>
-    <script src="./lib/DataTables/buttons.html5.min.js"></script>
-    <script src="./lib/DataTables/buttons.print.min.js"></script>
-    <script src="./lib/DataTables/colVis.min.js"></script>
-    <!-- custom js -->
-    <script src="./assets/js/main.js"></script>
-    
-    
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  
-    
-            <script src="./lib/jQuery/jquery-3.5.1.min.js"></script>
-            <script src="./lib/bootstrap_5/bootstrap.bundle.min.js"></script>
-            <script src="./assets/js/main.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-            <script src="./assets/js/dashboard_chart.js"></script>
-            <script src="./lib/jQuery/jquery-3.5.1.min.js"></script>
-            <script src="./lib/bootstrap_5/bootstrap.bundle.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-            <script src="./assets/js/apexChart/script.js"></script>
-            <script src="./assets/js/main.js"></script>
+                <div class="d2c_dataTable table-responsive">
+                  <table id="table_id_1" class="w-100">
+                    <thead>
+                      <tr>
+                        <th class="center-align" style="min-width: 120px">번호</th>
+                        <th class="center-align" style="min-width: 120px">파일명</th>
+                        <th class="center-align" style="min-width: 120px">파일 등록일</th>
+                        <th class="center-align" style="min-width: 120px">파일 다운로드</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="center-align">1</td>
+                        <td class="center-align">개인정보 목적 외 이용 및 제공 대장 양식</td>
+                        <td class="center-align">2024-07-01</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                            onclick="downloadFile('개인정보 목적 외 이용 및 제공 대장_양식.pdf')"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">2</td>
+                        <td class="center-align">개인정보보호 교육계획 양식</td>
+                        <td class="center-align">2024-07-01</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                            onclick="downloadFile('개인정보보호_교육계획_양식.pdf')"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">3</td>
+                        <td class="center-align">개인정보 수집·이용 동의서 양식</td>
+                        <td class="center-align">2024-07-01</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                            onclick="downloadFile('개인정보 수집·이용 동의서_양식.pdf')"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">4</td>
+                        <td class="center-align">개인정보처리 위탁계약서 양식</td>
+                        <td class="center-align">2024-07-01</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                            onclick="downloadFile('개인정보처리_위탁계약서_양식.pdf')"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">5</td>
+                        <td class="center-align">개인정보파일 파기 요청서 양식</td>
+                        <td class="center-align">2024-07-01</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                            onclick="downloadFile('개인정보파일 파기 요청서_양식.pdf')"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">6</td>
+                        <td class="center-align">내부관리계획_양식</td>
+                        <td class="center-align">2024-07-01</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                            onclick="downloadFile('내부관리계획_양식.pdf')"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">7</td>
+                        <td class="center-align">수탁자 개인정보보호 교육 및 관리감독 양식</td>
+                        <td class="center-align">2024-07-02</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                            onclick="downloadFile('수탁자_개인정보보호_교육및_관리감독_양식.pdf')"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">8</td>
+                        <td class="center-align">위험관리보고서 작성가이드</td>
+                        <td class="center-align">2024-07-02</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                            onclick="downloadFile('위험관리보고서_작성가이드.pdf')"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">9</td>
+                        <td class="center-align">영상정보처리기기 파기 양식</td>
+                        <td class="center-align">2024-07-03</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="center-align">10</td>
+                        <td class="center-align">개인정보 파기 대장</td>
+                        <td class="center-align">2024-07-03</td>
+                        <td class="center-align">
+                          <button
+                            class="btn download-btn"
+                            tabindex="0"
+                            type="button"
+                          >
+                            <span>다운로드</span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Table 1 -->
+        </div>
+        <!-- Page Content  -->
+      </div>
+
+      <!-- Initial  Javascript -->
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="../lib/bootstrap_5/bootstrap.bundle.min.js"></script>
+
+      <!-- datatable js link -->
+      <script src="../lib/DataTables/datatables.min.js"></script>
+      <script src="../lib/DataTables/dataTables.buttons.min.js"></script>
+      <script src="../lib/DataTables/jszip.min.js"></script>
+      <script src="../lib/DataTables/pdfmake.min.js"></script>
+      <script src="../lib/DataTables/vfs_fonts.js"></script>
+      <script src="../lib/DataTables/buttons.html5.min.js"></script>
+      <script src="../lib/DataTables/buttons.print.min.js"></script>
+      <script src="../lib/DataTables/colVis.min.js"></script>
+
+      <!-- custom js -->
+      <script src="../assets/js/main.js"></script>
 <script>
                 document.getElementById('ismsp-link').addEventListener('click', function (event) {
                     event.preventDefault();
@@ -768,61 +834,59 @@
                     sub3_4_submenu.classList.toggle('d-none');
                 });
             </script>
-    <script>
+      <script>
         $(document).ready(function () {
+          $("#table_id_1").DataTable();
 
-            $('.input-daterange').datepicker({
-                format: 'dd-mm-yyyy',
-                autoclose: true
-            });
-            $('#table_id_1').DataTable();
+          $("#table_id_2").DataTable({
+            dom:
+              "<'row align-items-center'<'col-sm-12 col-md-6 px-3 text-center text-md-start'B><'col-sm-12 col-md-6 px-3'f>>" +
+              "<'row'<'col-sm-12'tr>>" +
+              "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+            buttons: [
+              { extend: "copy", className: "btn btn-primary" },
+              { extend: "csv", className: "btn btn-secondary" },
+              { extend: "excel", className: "btn btn-success" },
+              { extend: "pdf", className: "btn download-btn" },
+              { extend: "print", className: "btn btn-danger" },
+            ],
+          });
 
-            $('#table_id_2').DataTable({
-                dom: "<'row align-items-center'<'col-sm-12 col-md-6 px-3 text-center text-md-start'B><'col-sm-12 col-md-6 px-3'f>>" +
-                    "<'row'<'col-sm-12'tr>>" +
-                    "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                buttons: [
-                    { extend: 'copy', className: 'btn btn-primary' },
-                    { extend: 'csv', className: 'btn btn-secondary' },
-                    { extend: 'excel', className: 'btn btn-success' },
-                    { extend: 'pdf', className: 'btn btn-warning' },
-                    { extend: 'print', className: 'btn btn-danger' }
-                ]
-            });
+          var table_3 = $("#table_id_3").DataTable({
+            dom:
+              "<'row align-items-center'<'col-sm-12 col-md-6 px-3 text-center text-md-start'B><'col-sm-12 col-md-6 px-3'f>>" +
+              "<'row'<'col-sm-12'tr>>" +
+              "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+            lengthChange: false,
+            buttons: [
+              {
+                extend: "colvis",
+                className: "btn download-btn",
+              },
+            ],
+          });
 
-            var table_3 = $('#table_id_3').DataTable( {
-                dom: "<'row align-items-center'<'col-sm-12 col-md-6 px-3 text-center text-md-start'B><'col-sm-12 col-md-6 px-3'f>>" +
-                    "<'row'<'col-sm-12'tr>>" +
-                    "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-                lengthChange: false,
-                buttons: [
-                    { 
-                        extend: 'colvis', 
-                        className: 'btn btn-warning',
-                    }
-                ]
-            } );
-        
-            table_3.buttons().container().appendTo( '#table_id_3_wrapper .col-md-6:eq(0)');
+          table_3
+            .buttons()
+            .container()
+            .appendTo("#table_id_3_wrapper .col-md-6:eq(0)");
         });
-
-    </script>
+      </script>
+      
     <script>
     function downloadFile(filename){
-    	window.location.href = 'uDownloader?filename='+encodeURIComponent(filename);
+    	window.location.href = 'dDownloader?filename='+encodeURIComponent(filename);
     }
     </script>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.input-daterange').datepicker({
-            format: 'dd-mm-yyyy',
-            autoclose: true
-        });
-    });
-</script>
-</body>
-
+    </div>
+  </body>
 </html>
+
+<!-- 
+    template name:{{dataments}}
+    template url:{{https://www.designtocodes.com/product/dataments-free-bootstrap-admin-dashboard-template/}}
+    description:{{unveiling the dataments free bootstrap admin dashboard template, your ultimate solution to a seamless web management experience! this is more than just a template; it's your partner in crafting a digital masterpiece.}}
+    author: designtocodes 
+    author url: https://www.designtocodes.com 
+    text domain:{{dataments}}
+-->
